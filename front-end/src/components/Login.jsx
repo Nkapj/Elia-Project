@@ -5,7 +5,7 @@ import "./Login.css";
 
 function Login() {
 // initaliser les espace vide 
-const [name , SetName] = useState("");
+const [name , setName] = useState("");
 const [password, setPassword] = useState("");
 const navigate = useNavigate();// Hook pour naviguer entre les pages 
 
