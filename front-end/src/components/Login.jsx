@@ -26,8 +26,6 @@ if (name === "Jiara Martins" && password === "123456") {
   return (
     <div className="login-container">
     <h1 className="title">Login</h1>
-    <span className="subtitle">sign in</span>
-
     <form className="login-form" onSubmit={handleSubmit}>
       <label htmlFor="name">NAME</label>
       <input
@@ -36,7 +34,6 @@ if (name === "Jiara Martins" && password === "123456") {
         placeholder="Entrer le nom"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        
       />
 
       <label htmlFor="password">PASSWORD</label>
