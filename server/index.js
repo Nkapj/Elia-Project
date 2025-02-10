@@ -4,19 +4,16 @@ const dayRoutes = require('./routes/dayRoutes');
 const weekRoutes = require('./routes/weekRoutes');
 const express = require ('express');
 const axios = require ('axios');
-
-
 require('dotenv').config();
 
+port = process.env.Port || 3000;
 
 connectDB();
 
-//
 
 
 const app = express();
-
-port = process.env.Port || 5000;
+app.use(express.json());
 
 
 
@@ -28,9 +25,6 @@ app.use('/api/weeks', weekRoutes);
 
 
 
-app.get('/',(req,res) => {
-    res.send('hello world')
-})
 
 
 
