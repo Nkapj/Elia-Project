@@ -17,6 +17,15 @@ router.get('/', async (req,res) => {
     }
 });
 
+router.get('/:id', async (req,res) => {
+    try {
+        const day = await Day.findById(req.params.id);
+        res.json(day)
+    } catch (err) {
+        console.error('erreur charge day')
+        res.status(500).json
+    }
+});
 
 // router.post('/', async (req, res) => {
 //     const { email, password } = req.body;

@@ -7,11 +7,21 @@ const router = express.Router();
 
 const fs = require('fs');
 
-router.get('/api/users', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         // Récupérer tous les utilisateurs de la base de données
         const users = await User.find({});
         res.json(users);  // Envoie les utilisateurs sous forme de JSON
+    } catch (err) {
+        res.status(500).json({ message: "Erreur serveur" });  // Si une erreur se produit
+    }
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        // Récupérer tous les utilisateurs de la base de données
+        const user = await User.findById(req.params.id);
+        res.json(user);  // Envoie les utilisateurs sous forme de JSON
     } catch (err) {
         res.status(500).json({ message: "Erreur serveur" });  // Si une erreur se produit
     }

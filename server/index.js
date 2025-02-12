@@ -29,7 +29,7 @@ app.use(cors({
 
 app.use(express.static(path.join(__dirname, '../front-end/dist')));
 
-app.use('/', userRoutes);
+app.use('/api/users', userRoutes);
 
 app.use('/api/days', dayRoutes);
 
