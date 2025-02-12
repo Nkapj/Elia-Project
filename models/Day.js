@@ -5,10 +5,13 @@ const daySchema = new mongoose.Schema({
     schedule: [{
         _id: false, 
             guard: {type : mongoose.Schema.Types.ObjectId, ref: 'User'},
+            start : {type: String, required : true,  },
+            end : {type: String, required : true,  },
+
+
             shifts : [{
                 _id: false, 
-                    start : {type: String, required : true,  },
-                    end : {type: String, required : true,  },
+                    
                     originalGuard : {type: mongoose.Schema.Types.ObjectId, ref:'User'},
                     replacementGuard: {type: mongoose.Schema.Types.ObjectId, ref:'User', default: null}
                     }]
