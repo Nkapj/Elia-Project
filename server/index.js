@@ -23,9 +23,10 @@ port = process.env.Port || 5000;
 
 app.use(cors({
   origin: 'http://localhost:5173', // Remplace par l'URL de ton front-end si nécessaire
-  methods: ['GET', 'POST'], // Liste des méthodes autorisées
+  methods: ['GET', 'POST','PUT'], // Liste des méthodes autorisées
   credentials: true, // Si tu utilises des cookies ou des sessions
 }));
+app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../front-end/dist')));
 

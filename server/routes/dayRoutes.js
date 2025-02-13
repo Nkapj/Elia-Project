@@ -27,8 +27,27 @@ router.get('/:id', async (req,res) => {
     }
 });
 
-// router.post('/', async (req, res) => {
-//     const { email, password } = req.body;
-
+router.put("/:id", async (req, res) => {
+    try {
+      const { guard } = req.body;
+      const { id } = req.params;
+  
+      const updatedDay = await Day.findByIdAndUpdate(id,
+        {
+          $set: { "schedule.0.guard": guard }  // Modifier uniquement le garde du premier élément du tableau schedule
+        },
+        { 
+          new: true,  // Retourner le document mis à jour
+          runValidators: true, // Valider les données avant de mettre à jour
+        }
+      );
+  
+      res.json(updatedDay); // Retourne le document mis à jour
+    } catch (err) {
+      console.error("Error updating day:", err);  // Afficher l'erreur dans la console
+      res.status(500).json({ message: "Erreur serveur", error: err.message });
+    }
+  });
+  
 
 module.exports = router;
