@@ -1,6 +1,4 @@
-
 const Day = require ('../models/Day');
-
 const express = require ('express');
 const router = express.Router();
 
