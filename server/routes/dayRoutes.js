@@ -29,11 +29,11 @@ router.get('/:id', async (req,res) => {
 
 router.put("/:id", async (req, res) => {
     try {
-      const { guard } = req.body;
+      const { schedule } = req.body;
   
       const updatedDay = await Day.findByIdAndUpdate(req.params.id,
         {
-          $set: { "schedule.0.guard": guard }  // Modifier uniquement le garde du premier élément du tableau schedule
+          $set: { schedule:schedule }
         },
         { 
           new: true,  // Retourner le document mis à jour
