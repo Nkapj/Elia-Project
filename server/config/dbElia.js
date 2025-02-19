@@ -1,5 +1,6 @@
 //configuration de mongoose pour la co a la DB
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 
 const connectDB = async () =>{

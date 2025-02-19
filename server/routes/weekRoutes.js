@@ -1,11 +1,12 @@
 const express = require('express');
 const Week = require('../models/Week');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 
 const router = express.Router();
 
 
-router.get('/', async (req,res) =>{
+router.get('/',authMiddleware ,async (req,res) =>{
     try {
         const weeks = await Week.find({});
         res.json(weeks);
@@ -15,7 +16,7 @@ router.get('/', async (req,res) =>{
     }
 })
 
-router.get('/:id', async (req,res) =>{
+router.get('/:id',authMiddleware ,async (req,res) =>{
     try {
         const week = await Week.findById(req.params.id);
         res.json(week);
@@ -25,7 +26,7 @@ router.get('/:id', async (req,res) =>{
     }
 })
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", authMiddleware,async (req, res) => {
     try {
       const { guard } = req.body;        
       const updatedWeek = await Week.findByIdAndUpdate(
@@ -41,20 +42,6 @@ router.put("/:id", async (req, res) => {
     }
   });
 
-
-router.get('/', async (req,res) =>{
-    try {
-        const weeks = await Week.find({});
-        res.json(weeks);
-
-    }catch (err){
-        res.status(500).json('erreur de chargement');
-    }
-});
-
-
-
-
 router.post('/', async (req, res) => {
 
     try{
@@ -67,10 +54,6 @@ router.post('/', async (req, res) => {
         console.error(err);
         res.status(500).json('erreur de chargement')
     }
-})
-
-module.exports = router;
-  
-  
+})  
 
 module.exports = router;
