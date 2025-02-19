@@ -3,10 +3,9 @@ const userRoutes = require('./routes/userRoutes')
 const dayRoutes = require('./routes/dayRoutes');
 const weekRoutes = require('./routes/weekRoutes');
 const express = require ('express');
-const axios = require ('axios');
 const path = require('path');
 const cors = require('cors');
-
+const authRoutes = require('./routes/authRoutes');
 
 
 require('dotenv').config();
@@ -29,6 +28,8 @@ app.use(cors({
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../front-end/dist')));
+
+app.use('/api/auth', authRoutes);
 
 app.use('/api/users', userRoutes);
 
