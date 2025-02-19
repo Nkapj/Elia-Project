@@ -24,6 +24,27 @@ router.get('/', authMiddleware, async (req,res) => {
     }
 });
 
+router.put("/:id", async (req, res) => {
+    try {
+      const { shiftsCompleted } = req.body;
+  
+      const updatedUser = await User.findByIdAndUpdate(req.params.id,
+        {
+          $set: { shiftsCompleted:shiftsCompleted }
+        },
+        { 
+          new: true,  // Retourner le document mis à jour
+          runValidators: true, // Valider les données avant de mettre à jour
+        }
+      );
+  
+      res.json(updatedUser); // Retourne le document mis à jour
+    } catch (err) {
+      console.error("Error updating User:", err);  // Afficher l'erreur dans la console
+      res.status(500).json({ message: "Erreur serveur", error: err.message });
+    }
+  });
+
 
 
 router.get('/profil', authMiddleware, async (req,res) => {

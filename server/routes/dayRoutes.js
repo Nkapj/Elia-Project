@@ -30,6 +30,25 @@ router.post('/', async (req, res) => {
     } catch (err){
         console.error("un erreur s'est produite lors de l'ajout",err);
         res.status(500).json('erreur survenue')
+
+router.put("/:id", async (req, res) => {
+    try {
+      const { schedule } = req.body;
+  
+      const updatedDay = await Day.findByIdAndUpdate(req.params.id,
+        {
+          $set: { schedule:schedule }
+        },
+        { 
+          new: true,  // Retourner le document mis à jour
+          runValidators: true, // Valider les données avant de mettre à jour
+        }
+      );
+  
+      res.json(updatedDay); // Retourne le document mis à jour
+    } catch (err) {
+      console.error("Error updating day:", err);  // Afficher l'erreur dans la console
+      res.status(500).json({ message: "Erreur serveur", error: err.message });
     }
 });
 
