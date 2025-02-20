@@ -1,3 +1,4 @@
+const fs = require('fs');
 const express = require ('express');
 const { register, login } = require('../controllers/authControllers'); 
 const authMiddleware = require('../middlewares/authMiddleware');
@@ -20,6 +21,27 @@ router.get('/', authMiddleware, async (req,res) => {
         res.json(users);
     } catch (err){
         return res.status(500).json({message : "erreur serveur "})
+    }
+});
+
+router.put("/:id", authMiddleware,async (req, res) => {
+    try {
+        const { shiftsCompleted } = req.body;
+
+        const updatedUser = await User.findByIdAndUpdate(req.params.id,
+        {
+            $set: { shiftsCompleted:shiftsCompleted }
+        },
+        { 
+          new: true,  // Retourner le document mis à jour
+          runValidators: true, // Valider les données avant de mettre à jour
+        }
+    );
+
+      res.json(updatedUser); // Retourne le document mis à jour
+    } catch (err) {
+        console.error("Error updating User:", err);  // Afficher l'erreur dans la console
+        res.status(500).json({ message: "Erreur serveur", error: err.message });
     }
 });
 

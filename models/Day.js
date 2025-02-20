@@ -11,4 +11,4 @@ const DaySchema = new mongoose.Schema({
     ]
 });
 
-module.exports = mongoose.model("Day", DaySchema, 'day');
+module.exports = mongoose.model('Day', DaySchema, 'day');
