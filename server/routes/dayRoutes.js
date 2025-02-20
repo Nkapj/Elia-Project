@@ -16,6 +16,15 @@ router.get('/',authMiddleware ,async (req,res) => {
     }
 }); 
 
+router.get('/:id',authMiddleware ,async (req,res) => {
+  try {
+      const day = await Day.findById(req.params.id);      
+      res.json(day)
+  } catch (err) {
+      console.error('erreur charge day')
+      res.status(500).json
+  }
+}); 
 
 
 router.post('/', async (req, res) => {
