@@ -8,7 +8,7 @@
 ---
 
 ## 📖 About the Project
-**Elia** is a prototype application developed for **Elia**, the Belgian electricity 
+**eDuty** is a prototype application developed for **Elia**, the Belgian electricity 
 transmission system operator. The company needed a solution to **digitally manage employee schedules**, 
 replacing the manual work of the secretary responsible for handling **shift replacements, absences, and schedule changes** 
 due to vacations, emergencies, or errors.
