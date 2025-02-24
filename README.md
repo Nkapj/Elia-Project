@@ -89,11 +89,15 @@ cd elia
 ---
 
 ## 👥 Contributors
+<div align="center">
+
 | Name | Role |
 |----------------|------------------------------|
 | **[Jessica Nzi](https://github.com/Nkapj)** | Backend Development & Database Management |
 | **[Timmy Truong](https://github.com/titruong99)** | Backend-Frontend API Integration |
 | **[Chloé Hamoir](https://github.com/littlefoxy1nk)** | Frontend UI Development |
+
+</div>
 
 ---
 
