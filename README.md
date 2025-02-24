@@ -2,7 +2,7 @@
 
 ## 📸 Demo
 <p align="center">
-  <img src="FinalElia.png" alt="Aperçu du projet" width="600">
+  <img src="FinalElia.png" alt="Aperçu du projet" width="900">
 </p>
 
 ---
