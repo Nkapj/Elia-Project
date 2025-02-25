@@ -37,7 +37,7 @@ app.use('/api/days', dayRoutes);
 app.use('/api/weeks', weekRoutes);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '.server/public', 'index.html'));
 });
 
 
