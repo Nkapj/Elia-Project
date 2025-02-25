@@ -27,7 +27,11 @@ app.use(cors({
 }));
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, '../front-end/dist')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.use('/api/auth', authRoutes);
 
@@ -36,7 +40,6 @@ app.use('/api/users', userRoutes);
 app.use('/api/days', dayRoutes);
 
 app.use('/api/weeks', weekRoutes);
-
 
 
 
