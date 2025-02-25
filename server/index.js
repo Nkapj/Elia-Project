@@ -18,7 +18,7 @@ connectDB();
 
 const app = express();
 
-port = process.env.Port || 5000;
+port = process.env.PORT || 5000;
 
 app.use(cors({
   origin: 'http://localhost:5173', // Remplace par l'URL de ton front-end si nécessaire
@@ -27,7 +27,7 @@ app.use(cors({
 }));
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, '.server/public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/auth', authRoutes);
 
 app.use('/api/users', userRoutes);
@@ -37,7 +37,7 @@ app.use('/api/days', dayRoutes);
 app.use('/api/weeks', weekRoutes);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '.server/public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 
