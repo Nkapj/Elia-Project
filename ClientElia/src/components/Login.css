@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /*dégrader de couleur */
+    background: linear-gradient(90deg, #ffde59, #ff914d);
+  }
+  
+  .title {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    color: #fff;
+    font-family: "DM Sans", serif;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+  
+  .login-form {
+    width: 60%;
+    max-width: 300px;
+  }
+  
+  .login-form label {
+    display: block;
+    margin: 1rem 0 0.5rem 0;
+    color: #ffffffe9;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  
+  .login-form input {
+    width: 100%;
+    background-color: #ffffffb7;
+    font-family: "Poppins", serif;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .login-button {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.75rem;
+    /*pour que le bouton soit transparent */
+    background-color:#ffffff2e;
+    color: #fff;
+    letter-spacing: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
